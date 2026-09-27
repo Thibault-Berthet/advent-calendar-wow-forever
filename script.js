@@ -1,6 +1,6 @@
 // ================== CONFIGURATION ==================
 // Modifie la date de sortie ici si besoin
-const DATE_SORTIE = new Date(2026, 10, 4); // 4 novembre 2026
+const DATE_SORTIE = new Date(2026, 10, 5); // 5 novembre 2026
 
 // ================== CONTENU DES CASES ==================
 // Modifie librement ! Chaque case a : date, catégorie, titre, contenu, icône
@@ -234,9 +234,9 @@ const CASES = [
     date: new Date(2026, 9, 26),
     icone: "💡",
     categorie: "Astuce",
-    titre: "Check-list J-9",
+    titre: "Check-list J-10",
     contenu:
-      "Plus que 9 jours ! Vérifie :\n\n✓ Addons à jour\n✓ Discord fonctionnel\n✓ Stock de snacks et boissons\n✓ Personnage planifié\n✓ congé posé pour le 5 (on ne jugera pas)\n\nNon, le ménage ne compte pas comme préparation.",
+      "Plus que 10 jours ! Vérifie :\n\n✓ Addons à jour\n✓ Discord fonctionnel\n✓ Stock de snacks et boissons\n✓ Personnage planifié\n✓ congé posé pour le 5 (on ne jugera pas)\n\nNon, le ménage ne compte pas comme préparation.",
   },
   {
     date: new Date(2026, 9, 27),
@@ -268,7 +268,7 @@ const CASES = [
     categorie: "Blague",
     titre: "Fin du mois",
     contenu:
-      "Dernière case de septembre ! Un mois entier derrière nous, et tout octobre à déguster.\n\nCe soir, on ne parle plus que de builds, de macros et de qui sera le premier à tomber du lit le 4 novembre. Spoiler : ce sera le druide.",
+      "Dernière case de septembre ! Un mois entier derrière nous, et tout octobre à déguster.\n\nCe soir, on ne parle plus que de builds, de macros et de qui sera le premier à tomber du lit le 5 novembre. Spoiler : ce sera le druide.",
   },
   {
     date: new Date(2026, 9, 31),
@@ -276,34 +276,42 @@ const CASES = [
     categorie: "Boisson",
     titre: "Champagne d'Halloween",
     contenu:
-      "Le dernier jour d'octobre — et accessoirement Halloween — protocole officiel :\n\n• Une coupe de champagne (ou de limonade dorée, c'est l'Alliance, on accepte tout le monde)\n• Un toast d'entraînement — le vrai, celui de la veillée, c'est dans trois jours\n• Se coucher DIRECT après. C'est un ordre.\n\nPour l'Alliance ! 🏰",
+      "Le dernier jour d'octobre — et accessoirement Halloween — protocole officiel :\n\n• Une coupe de champagne (ou de limonade dorée, c'est l'Alliance, on accepte tout le monde)\n• Un toast d'entraînement — le vrai, celui de la veillée, c'est dans quatre jours\n• Se coucher DIRECT après. C'est un ordre.\n\nPour l'Alliance ! 🏰",
   },
   {
     date: new Date(2026, 10, 1),
     icone: "🌅",
     categorie: "Citation",
-    titre: "Jour J — 3",
+    titre: "Jour J — 4",
     contenu:
-      "« Fait par des nerds, pour des nerds. » — La seule description honnête d'un serveur de guilde\n\nTrois jours. La Horde ne sait pas ce qui l'attend. Nous non plus, mais avec plus de style.",
+      "« Fait par des nerds, pour des nerds. » — La seule description honnête d'un serveur de guilde\n\nQuatre jours. La Horde ne sait pas ce qui l'attend. Nous non plus, mais avec plus de style.",
   },
   {
     date: new Date(2026, 10, 2),
     icone: "⚔️",
     categorie: "Citation",
-    titre: "Jour J — 2",
+    titre: "Jour J — 3",
     contenu:
-      "« Le monde sera brisé, mais pas notre amitié. » (Probablement un nain, enfin j'espère)\n\nDeux jours. Respirez. Les héros se reposent avant la bataille.",
+      "« Le monde sera brisé, mais pas notre amitié. » (Probablement un nain, enfin j'espère)\n\nTrois jours. Respirez. Les héros se reposent avant la bataille.",
   },
   {
     date: new Date(2026, 10, 3),
     icone: "🔥",
     categorie: "Citation",
-    titre: "Jour J — 1",
+    titre: "Jour J — 2",
     contenu:
       "« Vous n'êtes toujours pas préparés, mais vous êtes prêts. » — Un raid entier, ce matin\n\nDernier check : addons, snacks, amour de l'aventure. On se revoit dans Azeroth. 💙",
   },
   {
     date: new Date(2026, 10, 4),
+    icone: "🥂",
+    categorie: "Boisson",
+    titre: "Jour J — 1 : la Veillée",
+    contenu:
+      "La veille du grand jour, protocole officiel :\n\n• Une coupe de champagne (ou de limonade dorée, c'est l'Alliance, on accepte tout le monde)\n• Un toast à 23h59\n• Se coucher DIRECT après. C'est un ordre.\n\nPour l'Alliance ! 🏰",
+  },
+  {
+    date: new Date(2026, 10, 5),
     icone: "🎉",
     categorie: "Citation",
     titre: "🎉 C'EST AUJOURD'HUI ! 🎉",
