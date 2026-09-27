@@ -92,7 +92,7 @@ h1 {
   background: linear-gradient(160deg, var(--bleu) 0%, #123a6b 100%);
   border: 2px solid var(--or);
   border-radius: 12px;
-  min-height: 110px;
+  min-height: 124px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,8 +102,9 @@ h1 {
     transform 0.15s ease,
     box-shadow 0.15s ease;
   position: relative;
-  padding: 10px 8px;
+  padding: 34px 8px 10px;
   text-align: center;
+  perspective: 600px;
 }
 .case:hover {
   transform: translateY(-3px);
@@ -122,6 +123,36 @@ h1 {
   font-size: 1.4rem;
   margin-top: 6px;
 }
+.couvercle {
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  right: 12px;
+  height: 20px;
+  border: 2px solid #8a6a10;
+  border-radius: 6px;
+  background: linear-gradient(180deg, var(--or-clair), var(--or) 70%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.35s ease,
+    top 0.35s ease;
+}
+.couvercle::before,
+.couvercle::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #6d5210;
+}
+.couvercle::before {
+  left: 7px;
+}
+.couvercle::after {
+  right: 7px;
+}
 .case.verrouillee {
   cursor: not-allowed;
   filter: saturate(0.4) brightness(0.55);
@@ -131,14 +162,28 @@ h1 {
   box-shadow: none;
 }
 .case.ouverte {
-  background: linear-gradient(160deg, #2b5d9e, #1a4d8f);
-  border-color: var(--or-clair);
+  background: radial-gradient(ellipse at 50% 30%, #4a350c 0%, #261a06 55%, #150e04 100%);
+  border-color: #8a6d2f;
+  padding-top: 10px;
+  box-shadow:
+    inset 0 0 26px rgba(240, 192, 64, 0.35),
+    0 0 14px rgba(240, 192, 64, 0.25);
 }
 .case.ouverte .jour {
-  color: #cfe0f5;
+  color: rgba(240, 192, 64, 0.55);
+}
+.case.ouverte .date {
+  color: rgba(159, 184, 220, 0.5);
+}
+.case.ouverte .couvercle {
+  top: -12px;
+  transform-origin: center bottom;
+  transform: rotateX(120deg);
+  z-index: 2;
 }
 .pastille {
   position: absolute;
+  z-index: 3;
   top: -8px;
   right: -8px;
   background: var(--or);

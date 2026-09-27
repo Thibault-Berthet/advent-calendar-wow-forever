@@ -412,11 +412,18 @@ function construireGrille() {
       "case" +
       (dispo ? "" : " verrouillee") +
       (ouvertes.has(i) ? " ouverte" : "");
+    let icone = "";
+    if (!dispo) {
+      icone = "🔒";
+    } else if (ouvertes.has(i)) {
+      icone = c.icone;
+    }
     el.innerHTML = `
       <span class="pastille">✓</span>
+      <div class="couvercle"></div>
       <div class="jour">${c.date.getDate()}</div>
       <div class="date">${MOIS[c.date.getMonth()]}</div>
-      <div class="icone">${dispo ? c.icone : "🔒"}</div>`;
+      <div class="icone">${icone}</div>`;
     if (dispo) {
       el.addEventListener("click", () => {
         el.classList.add("ouverture");
