@@ -30,7 +30,7 @@ const CASES = [
     categorie: "Blague",
     titre: "Question du jour",
     contenu:
-      "Pourquoi les voleurs de Hurlevent sont-ils si discrets ?\n\nParce qu'après avoir fait des milliers de pickpockets sur les mêmes dix mobs, ils en ont fait une science. 🗡️",
+      "Combien de joueurs faut-il pour changer une bougie sur WoW Forever ?\n\nAucune idée, on est toujours dans la file. 🕯️",
     defi: "Poste ta blague WoW la plus nulle. Le gémissement collectif désigne le perdant du jour.",
   },
   {
@@ -366,7 +366,6 @@ const CASES = [
       "WoW Forever est là. Vous avez patienté comme des champions.\n\nQue vos loot soient légendaires, vos quêtes épiques et vos déconnexions rares.\n\nPOUR L'ALLIANCE ! ⚔️🛡️🏰\n\n(Le calendrier vous salue bien bas et part farm avec vous.)",
     defi: "Le premier screenshot de toute la guilde sur la même image, dans Azeroth. Ce sera notre première épopée.",
   },
-
 ];
 
 // ================== LOGIQUE ==================
