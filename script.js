@@ -266,25 +266,25 @@ const CASES = [
     date: new Date(2026, 9, 30),
     icone: "😄",
     categorie: "Blague",
-    titre: "Veille de veille",
+    titre: "Fin du mois",
     contenu:
-      "Demain, c'est la veille du jour J.\n\nCe soir, on ne parle plus que de builds, de macros et de qui sera le premier à tomber du lit demain matin. Spoiler : ce sera le druide.",
+      "Dernière case de septembre ! Un mois entier derrière nous, et tout octobre à déguster.\n\nCe soir, on ne parle plus que de builds, de macros et de qui sera le premier à tomber du lit le 4 novembre. Spoiler : ce sera le druide.",
   },
   {
     date: new Date(2026, 9, 31),
     icone: "🥂",
     categorie: "Boisson",
-    titre: "Coup de Champagne de la Veillée",
+    titre: "Champagne d'Halloween",
     contenu:
-      "La veille du grand jour, protocole officiel :\n\n• Une coupe de champagne (ou de limonade dorée, c'est l'Alliance, on accepte tout le monde)\n• Un toast à 23h59\n• Se coucher DIRECT après. C'est un ordre.\n\nPour l'Alliance ! 🏰",
+      "Le dernier jour d'octobre — et accessoirement Halloween — protocole officiel :\n\n• Une coupe de champagne (ou de limonade dorée, c'est l'Alliance, on accepte tout le monde)\n• Un toast d'entraînement — le vrai, celui de la veillée, c'est dans trois jours\n• Se coucher DIRECT après. C'est un ordre.\n\nPour l'Alliance ! 🏰",
   },
   {
     date: new Date(2026, 10, 1),
     icone: "🌅",
     categorie: "Citation",
-    titre: "Jour J — 1",
+    titre: "Jour J — 3",
     contenu:
-      "« Vous n'êtes toujours pas préparés, mais vous êtes prêts. » — Un raid entier, ce matin\n\nDernier check : addons, snacks, amour de l'aventure. On se revoit dans Azeroth. 💙",
+      "« Fait par des nerds, pour des nerds. » — La seule description honnête d'un serveur de guilde\n\nTrois jours. La Horde ne sait pas ce qui l'attend. Nous non plus, mais avec plus de style.",
   },
   {
     date: new Date(2026, 10, 2),
@@ -298,9 +298,9 @@ const CASES = [
     date: new Date(2026, 10, 3),
     icone: "🔥",
     categorie: "Citation",
-    titre: "Jour J — 3",
+    titre: "Jour J — 1",
     contenu:
-      "« Fait par des nerds, pour des nerds. » — La seule description honnête d'un serveur de guilde\n\nTrois jours. La Horde ne sait pas ce qui l'attend. Nous non plus, mais avec plus de style.",
+      "« Vous n'êtes toujours pas préparés, mais vous êtes prêts. » — Un raid entier, ce matin\n\nDernier check : addons, snacks, amour de l'aventure. On se revoit dans Azeroth. 💙",
   },
   {
     date: new Date(2026, 10, 4),
@@ -354,7 +354,7 @@ function marquerOuverte(i) {
 
 function construireCompteur() {
   const cible = minuit(DATE_SORTIE);
-  let diff = cible - aujourdhui();
+  let diff = cible - new Date();
   const jours = Math.max(0, Math.floor(diff / 86400000));
   const cont = document.getElementById("compte-a-rebours");
   cont.innerHTML = `
