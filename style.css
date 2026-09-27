@@ -81,6 +81,7 @@ h1 {
 
 /* ====== Grille des cases ====== */
 #grille {
+  perspective: 800px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 14px;
@@ -153,6 +154,53 @@ h1 {
 }
 .case.ouverte .pastille {
   display: flex;
+}
+
+/* ====== Animation d'ouverture ====== */
+@keyframes ouverture-case {
+  0% {
+    transform: rotateY(0deg) scale(1);
+  }
+  35% {
+    transform: rotateY(0deg) scale(1.1);
+    box-shadow: 0 0 30px rgba(212, 160, 23, 0.9);
+  }
+  100% {
+    transform: rotateY(90deg) scale(1.05);
+    opacity: 0.35;
+  }
+}
+.case.ouverture {
+  animation: ouverture-case 0.42s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes fondu-voile {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#voile.visible {
+  animation: fondu-voile 0.25s ease;
+}
+@keyframes arrivee-modale {
+  from {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+#voile.visible .modale {
+  animation: arrivee-modale 0.35s ease;
 }
 
 /* ====== Modale ====== */

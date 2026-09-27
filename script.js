@@ -7,6 +7,14 @@ const DATE_SORTIE = new Date(2026, 10, 5); // 5 novembre 2026
 // Catégories possibles : Blague, Recette, Boisson, Astuce, Lore, Défi, Citation
 const CASES = [
   {
+    date: new Date(2026, 8, 27),
+    icone: "🎁",
+    categorie: "Astuce",
+    titre: "Case bonus",
+    contenu:
+      "Tu as trouvé la case bonus de lancement ! Il n'y a rien dedans... enfin, si : la preuve que le calendrier fonctionne.\n\nAstuce du jour : reviens chaque jour à partir de demain, et ouvre ta case en premier pour frimer dans le groupe. 🎁",
+  },
+  {
     date: new Date(2026, 8, 28),
     icone: "🍻",
     categorie: "Boisson",
@@ -410,7 +418,10 @@ function construireGrille() {
       <div class="date">${MOIS[c.date.getMonth()]}</div>
       <div class="icone">${dispo ? c.icone : "🔒"}</div>`;
     if (dispo) {
-      el.addEventListener("click", () => ouvrirModale(i));
+      el.addEventListener("click", () => {
+        el.classList.add("ouverture");
+        setTimeout(() => ouvrirModale(i), 420);
+      });
     } else {
       el.title =
         "Patience, jeune héros... case disponible le " +
