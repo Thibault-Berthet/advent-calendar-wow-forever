@@ -297,6 +297,28 @@ h1 {
   white-space: pre-line;
   font-size: 1.02rem;
 }
+.defi-bloc {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border: 1px dashed var(--or);
+  border-radius: 10px;
+  background: rgba(212, 160, 23, 0.08);
+}
+.defi-titre {
+  display: block;
+  color: var(--or-clair);
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.defi-bloc p {
+  margin: 0;
+  line-height: 1.55;
+  white-space: pre-line;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.98rem;
+}
+
 .fermer {
   display: block;
   margin: 22px auto 0;
