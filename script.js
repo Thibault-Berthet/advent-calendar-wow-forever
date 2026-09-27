@@ -30,7 +30,7 @@ const CASES = [
     categorie: "Blague",
     titre: "Question du jour",
     contenu:
-      "Combien de joueurs faut-il pour changer une bougie sur WoW Forever ?\n\nAucune idée, on est toujours dans la file. 🕯️",
+      "Combien de joueurs faut-il pour changer une bougie sur WoW Forever ?\n\nAucune idée, on est toujours dans la file d'attente. 🕯️",
     defi: "Poste ta blague WoW la plus nulle. Le gémissement collectif désigne le perdant du jour.",
   },
   {
