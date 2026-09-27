@@ -353,10 +353,14 @@ function aujourdhui() {
   return minuit(new Date());
 }
 
+function cleCase(i) {
+  const d = CASES[i].date;
+  return d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
+}
 function casesOuvertes() {
   try {
     return new Set(
-      JSON.parse(localStorage.getItem("wow-avent-ouvertes") || "[]"),
+      JSON.parse(localStorage.getItem("wow-avent-ouvertes-v2") || "[]"),
     );
   } catch (e) {
     return new Set();
@@ -364,8 +368,8 @@ function casesOuvertes() {
 }
 function marquerOuverte(i) {
   const s = casesOuvertes();
-  s.add(i);
-  localStorage.setItem("wow-avent-ouvertes", JSON.stringify([...s]));
+  s.add(cleCase(i));
+  localStorage.setItem("wow-avent-ouvertes-v2", JSON.stringify([...s]));
 }
 
 function construireCompteur() {
@@ -411,11 +415,11 @@ function construireGrille() {
     el.className =
       "case" +
       (dispo ? "" : " verrouillee") +
-      (ouvertes.has(i) ? " ouverte" : "");
+      (ouvertes.has(cleCase(i)) ? " ouverte" : "");
     let icone = "";
     if (!dispo) {
       icone = "🔒";
-    } else if (ouvertes.has(i)) {
+    } else if (ouvertes.has(cleCase(i))) {
       icone = c.icone;
     }
     el.innerHTML = `
