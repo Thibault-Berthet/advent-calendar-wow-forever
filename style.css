@@ -1,3 +1,11 @@
+/* ====== Police ====== */
+@font-face {
+  font-family: "LifeCraft";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/LifeCraft.woff") format("woff");
+}
+
 /* ====== Thème Alliance : bleu / or ====== */
 :root {
   --bleu: #1a4d8f;
@@ -13,7 +21,7 @@
   padding: 0;
 }
 body {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "LifeCraft", Georgia, "Times New Roman", serif;
   background: radial-gradient(ellipse at top, #16294a 0%, var(--nuit) 65%);
   color: var(--ivoire);
   min-height: 100vh;
@@ -181,7 +189,7 @@ h1 {
   letter-spacing: 1px;
   padding: 3px 12px;
   border-radius: 20px;
-  font-family: system-ui, sans-serif;
+  font-family: "LifeCraft", system-ui, sans-serif;
   margin-bottom: 14px;
   font-weight: bold;
 }
@@ -192,6 +200,7 @@ h1 {
 }
 .modale .contenu {
   line-height: 1.65;
+  font-family: Georgia, "Times New Roman", serif;
   white-space: pre-line;
   font-size: 1.02rem;
 }
@@ -206,7 +215,7 @@ h1 {
   border-radius: 24px;
   font-size: 1rem;
   cursor: pointer;
-  font-family: Georgia, serif;
+  font-family: "LifeCraft", Georgia, serif;
 }
 .fermer:hover {
   filter: brightness(1.15);
