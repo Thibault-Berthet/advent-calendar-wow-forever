@@ -12,8 +12,8 @@ const CASES = [
     categorie: "Astuce",
     titre: "Case bonus",
     contenu:
-      "Tu as trouvé la case bonus de lancement ! Il n'y a rien dedans... enfin, si : la preuve que le calendrier fonctionne.\n\nAstuce du jour : reviens chaque jour à partir de demain, et ouvre ta case en premier pour frimer dans le groupe. 🎁",
-    defi: "Partage le calendrier à un ami qui devrait jouer avec nous. Recruter, c'est déjà servir l'Alliance.",
+      "Tu as trouvé la case bonus de lancement ! Il n'y a rien dedans... enfin, si : la preuve que le calendrier fonctionne.\n\nAstuce du jour : reviens chaque jour, et ouvre ta case en premier pour frimer dans le discord. 🎁",
+    defi: "Partage le calendrier à un ami qui devrait jouer avec nous. Recruter, c'est déjà servir l'Alliance !",
   },
   {
     date: new Date(2026, 8, 28),
@@ -22,7 +22,7 @@ const CASES = [
     titre: "Bière de Forgefer",
     contenu:
       "La recette officieuse des nains :\n\n• 50 cl de bière ambrée\n• 1 cuillère de miel\n• 1 pincée de cannelle\n• Une larme de nostalgie pour Khaz Modan\n\nMélanger, lever son pichet et crier : « Pour l'Alliance ! »",
-    defi: "Ce soir à 21h, chacun lève son verre où qu'il soit et poste la photo dans le groupe. « Pour l'Alliance ! » obligatoire.",
+    defi: "Ce soir à 21h, chacun lève son verre où qu'il soit et poste la photo sur le Discord. « Pour l'Alliance ! » obligatoire.",
   },
   {
     date: new Date(2026, 8, 29),
