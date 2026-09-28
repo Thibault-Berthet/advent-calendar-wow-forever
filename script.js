@@ -62,21 +62,21 @@ const CASES = [
   },
   {
     date: new Date(2026, 9, 3),
-    icone: "📖",
+    icone: "🍗",
     categorie: "Lore",
-    titre: "Le savais-tu ?",
+    titre: "Leeroy Jenkins",
     contenu:
-      "Le « pigeon » de Hurlevent, c'est en fait un jeune dragon. Certains fans soupçonnent depuis 15 ans que les deux gamins qui l'observent savaient tout. Théorie non confirmée, espoir intact. 🐣",
-    defi: "Va observer le pigeon-dragon de Hurlevent et compte les gamins autour. Poste ton rapport d'enquête.",
+      "2005, Pic Rochenoire. Une guilde prépare son attaque aux petits oignons : plans, tactique, calculs de survie (32,33 %, répétition oblige).\n\nSoudain, Leeroy revient de son AFK, hurle son propre nom — « LEEROOOY JENKIIINS » — et charge dans la salle.\n\nLa guilde suit pour le sauver. Tout le monde meurt. À la fin, Leeroy lâche juste : « Au moins j'ai du poulet. »\n\nLa vidéo a fait le tour du monde, et « faire un Leeroy » est entré dans la langue des joueurs : charger sans réfléchir. 🍗",
+    defi: "Raconte ton plus gros Leeroy : la fois où tu as chargé sans réfléchir et coûté la victoire. Le meilleur gagne 1 PO.",
   },
   {
     date: new Date(2026, 9, 4),
-    icone: "🚋",
+    icone: "🐺",
     categorie: "Lore",
-    titre: "Le savais-tu ?",
+    titre: "Hogger, le fléau d'Elwynn",
     contenu:
-      "Il existe un tram qui relie Hurlevent à Forgefer en passant SOUS la mer. Les nains ont creusé un tunnel géant et installé un vrai train.\n\nPersonne n'a jamais expliqué pourquoi ils n'ont pas simplement fait un portail. Les nains répondent : « Un portail, ça n'a pas de klaxon. »",
-    defi: "Écris dans le groupe ta classe principale et une seule raison pour laquelle tu la joues.\n\nInterdit de dire « parce que c'est la meilleure ». Spoiler : tout le monde va le dire quand même.",
+      "À l'orée de la forêt d'Elwynn campe un gnoll nommé Hogger. Un « élite » niveau 11, à deux pas de la zone des nouveaux joueurs.\n\nPendant des années, il a fait plus de victimes que la Légion ardente. Toute une génération a appris ce que veut dire « élite » en le découvrant — en général, en courant vers Hurlevent.\n\nLe jeu l'a tellement adopté qu'il est devenu un vrai boss de donjon. Un gnoll, une clairière, vingt ans de traumatismes. 🐺",
+    defi: "Raconte ta mort la plus honteuse face à un PNJ que tu croyais faible (Hogger, un sanglier, un murloc...). La plus cruelle gagne 1 PO.",
   },
   {
     date: new Date(2026, 9, 5),
