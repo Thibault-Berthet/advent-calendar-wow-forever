@@ -37,9 +37,9 @@ const CASES = [
     date: new Date(2026, 8, 30),
     icone: "🍲",
     categorie: "Recette",
-    titre: "Ragoût de Kaldorei",
+    titre: "Salade de Kaldorei",
     contenu:
-      "D'après les traqueurs de Darnassus :\n\n• 500 g de bœuf en cubes\n• 3 carottes, 2 pommes de terre\n• 1 oignon, thym, laurier\n• 25 cl de bouillon\n\nMijoter 2h. Servir sous un arbre géant, en mode furtif pour que la Horde ne sente pas l'odeur.",
+      "La salade des traqueurs de Darnassus, 100% cueillette :\n\n• Fraises de Teldrassil (l'officielle)\n• Une poignée de myrtilles\n• Des dés de brie de Darnassus\n• Jeunes pousses d'épinards\n• Noix torréfiées du bosquet\n\nVinaigrette : miel, citron, huile, une larme de jus de baies de lune. Les Kaldorei ne mangent pas la viande d'un animal qu'ils n'ont pas salué — donc ce soir, c'est salade. Se déguste sous les étoiles. 🌙",
     defi: "Poste une photo de ton vrai dîner de ce soir. Le groupe vote pour le plat le plus digne d'un traqueur de Darnassus.",
   },
   {
