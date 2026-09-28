@@ -4,7 +4,7 @@ const DATE_SORTIE = new Date(2026, 10, 5); // 5 novembre 2026
 
 // ================== CONTENU DES CASES ==================
 // Modifie librement ! Chaque case a : date, catégorie, titre, contenu, icône, défi
-// Catégories possibles : Blague, Recette, Boisson, Astuce, Lore, Défi, Citation
+// Catégories possibles : Blague, Recette, Boisson, Astuce, Lore, Défi, Citation, Story Time
 const CASES = [
   {
     date: new Date(2026, 8, 27),
@@ -39,17 +39,17 @@ const CASES = [
     categorie: "Recette",
     titre: "Salade de Kaldorei",
     contenu:
-      "La salade des traqueurs de Darnassus, 100% cueillette :\n\n• Fraises de Teldrassil (l'officielle)\n• Une poignée de myrtilles\n• Des dés de brie de Darnassus\n• Jeunes pousses d'épinards\n• Noix torréfiées du bosquet\n\nVinaigrette : miel, citron, huile, une larme de jus de baies de lune. Les Kaldorei ne mangent pas la viande d'un animal qu'ils n'ont pas salué — donc ce soir, c'est salade. Se déguste sous les étoiles. 🌙",
-    defi: "Poste une photo de ton vrai dîner de ce soir. Le groupe vote pour le plat le plus digne d'un traqueur de Darnassus.",
+      "La salade de Darnassus :\n\n• Fraises de Teldrassil\n• Laitue\n• Une poignée de myrtilles\n• Des dés de bleu de Darnassus\n• Jeunes pousses d'épinards\n• Noix torréfiées du bosquet\n\nVinaigrette : miel, citron, huile, une larme de jus de baies de lune. Se déguste sous les étoiles. 🌙",
+    defi: "Poste une photo de ton vrai dîner de ce soir. le plat qui ressemble le plus à la salade de Darnassus gagne 1 PO.",
   },
   {
     date: new Date(2026, 9, 1),
-    icone: "💡",
-    categorie: "Astuce",
-    titre: "Le vieux réflexe",
+    icone: "🪓",
+    categorie: "Story Time",
+    titre: "La mort de Grom Hurlenfer",
     contenu:
-      "Astuce de vétéran : quand WoW Forever sortira, ne courez pas sur le premier serveur affiché.\n\nRepérez où vos amis iront AVANT le lancement, ou vous passerez 3 heures dans une file comme tout le monde. 😅",
-    defi: "Écris sur un papier le serveur où tu atterriras le 5 novembre et garde-le sous scellé. On vérifie qui avait raison le jour J.",
+      "Les orcs traînaient depuis des années la malédiction du sang de Mannoroth, le seigneur des abîmes.\n\nGrom Hurlenfer a décidé que ça suffisait. Aux côtés de Thrall, il est allé l'affronter au cœur du Val de Chanteguerre. Une charge, un coup de hache, et l'armure du démon a éclaté.\n\nL'explosion a blessé Grom à mort. En mourant, il a souri : « Je me suis libéré. » Thrall a répondu : « Tu nous as tous libérés, vieux ami. »\n\nCe jour-là, la malédiction du sang est morte. Grom aussi. 🪓",
+    defi: "Chacun raconte sa mort la plus épique dans WoW. La plus épique gagne 1 PO.",
   },
   {
     date: new Date(2026, 9, 2),
