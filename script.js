@@ -48,7 +48,7 @@ const CASES = [
     categorie: "Story Time",
     titre: "La mort de Grom Hurlenfer",
     contenu:
-      "Les orcs traînaient depuis des années la malédiction du sang de Mannoroth, le seigneur des abîmes.\n\nGrom Hurlenfer a décidé que ça suffisait. Aux côtés de Thrall, il est allé l'affronter au cœur du Val de Chanteguerre. Une charge, un coup de hache, et l'armure du démon a éclaté.\n\nL'explosion a blessé Grom à mort. En mourant, il a souri : « Je me suis libéré. » Thrall a répondu : « Tu nous as tous libérés, vieux ami. »\n\nCe jour-là, la malédiction du sang est morte. Grom aussi. 🪓",
+      "Les orcs traînaient depuis des années la malédiction du sang de Mannoroth, le seigneur des abîmes.\n\nGrom Hellscream a décidé que ça suffisait. Aux côtés de Thrall, il est allé l'affronter. Une charge, un coup de hache, et l'armure du démon a éclaté.\n\nL'explosion a blessé Grom à mort. En mourant, il a souri : « Je me suis libéré. » Thrall a répondu : «Non vieux camarade, vous nous avez tous libérés »\n\nCe jour-là, la malédiction du sang est morte. Grom aussi. 🪓",
     defi: "Chacun raconte sa mort la plus épique dans WoW. La plus épique gagne 1 PO.",
   },
   {
@@ -58,7 +58,7 @@ const CASES = [
     titre: "Vin de la Nuit",
     contenu:
       "La boisson des elfes de la nuit :\n\n• 20 cl de jus de raisin noir\n• 5 cl de citron vert\n• Quelques myrtilles\n• Glaçons « éternels » (2h au congélateur, ça compte)\n\nÀ déguster à 2h du matin, comme tous les vrais Kaldorei.",
-    defi: "Poste une photo de ton ciel ce soir. Le plus beau gagne le titre de « Kaldorei d'or ».",
+    defi: "Poste une photo de ton ciel ce soir. Le plus beau gagne 1 PO.",
   },
   {
     date: new Date(2026, 9, 3),
