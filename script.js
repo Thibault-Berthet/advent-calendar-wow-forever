@@ -22,7 +22,7 @@ const CASES = [
     titre: "Bière de Forgefer",
     contenu:
       "La recette officieuse des nains :\n\n• 50 cl de bière ambrée\n• 1 cuillère de miel\n• 1 pincée de cannelle\n• Une larme de nostalgie pour Khaz Modan\n\nMélanger, lever son pichet et crier : « Pour l'Alliance ! »",
-    defi: "Ce soir à 21h, chacun lève son verre où qu'il soit et poste la photo sur le Discord. « Pour l'Alliance ! » obligatoire.",
+    defi: "Ce soir à 21h, chacun lève son verre où qu'il soit et poste la photo sur le Discord ! La photo la plus originale gagne 1 PO.",
   },
   {
     date: new Date(2026, 8, 29),
@@ -31,7 +31,7 @@ const CASES = [
     titre: "Question du jour",
     contenu:
       "Combien de joueurs faut-il pour changer une bougie sur WoW Forever ?\n\nAucune idée, on est toujours dans la file d'attente. 🕯️",
-    defi: "Poste ta blague WoW la plus nulle. Le gémissement collectif désigne le perdant du jour.",
+    defi: "Poste ta meilleure blague WoW. La meilleure gagne 1 PO.",
   },
   {
     date: new Date(2026, 8, 30),
