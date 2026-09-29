@@ -372,12 +372,13 @@ footer {
   display: block;
   color: var(--or-clair);
   font-weight: bold;
-  font-size: 0.95rem;
-  margin-bottom: 6px;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
 }
 .fil-rouge p {
   margin: 0;
   color: #cfdcf0;
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
