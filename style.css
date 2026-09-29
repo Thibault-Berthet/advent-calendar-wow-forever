@@ -359,3 +359,25 @@ footer {
   cursor: pointer;
   text-decoration: underline dotted;
 }
+.fil-rouge {
+  margin: 26px auto 0;
+  max-width: 700px;
+  padding: 12px 18px;
+  border: 1px dashed var(--or);
+  border-radius: 10px;
+  background: rgba(212, 160, 23, 0.08);
+  font-style: normal;
+}
+.fil-rouge-titre {
+  display: block;
+  color: var(--or-clair);
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+.fil-rouge p {
+  margin: 0;
+  color: #cfdcf0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
