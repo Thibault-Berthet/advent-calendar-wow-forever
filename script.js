@@ -40,13 +40,13 @@ const CASES = [
     titre: "Salade de Kaldorei",
     contenu:
       "La salade de Darnassus :\n\n• Fraises de Teldrassil\n• Laitue\n• Une poignée de myrtilles\n• Des dés de bleu de Darnassus\n• Jeunes pousses d'épinards\n• Noix torréfiées du bosquet\n\nVinaigrette : miel, citron, huile, une larme de jus de baies de lune. Se déguste sous les étoiles. 🌙",
-    defi: "Poste une photo de ton vrai dîner de ce soir. le plat qui ressemble le plus à la salade de Darnassus gagne 1 PO.",
+    defi: "Poste une photo de ton vrai dîner de ce soir. Le plat qui ressemble le plus à la salade de Darnassus gagne 1 PO.",
   },
   {
     date: new Date(2026, 9, 1),
     icone: "🪓",
     categorie: "Story Time",
-    titre: "La mort de Grom Hurlenfer",
+    titre: "La mort de Grom Hellscream",
     contenu:
       "Les orcs traînaient depuis des années la malédiction du sang de Mannoroth, le seigneur des abîmes.\n\nGrom Hellscream a décidé que ça suffisait. Aux côtés de Thrall, il est allé l'affronter. Une charge, un coup de hache, et l'armure du démon a éclaté.\n\nL'explosion a blessé Grom à mort. En mourant, il a souri : « Je me suis libéré. » Thrall a répondu : «Non vieux camarade, vous nous avez tous libérés »\n\nCe jour-là, la malédiction du sang est morte. Grom aussi. 🪓",
     defi: "Chacun raconte sa mort la plus épique dans WoW. La plus épique gagne 1 PO.",
