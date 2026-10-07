@@ -101,7 +101,7 @@ const CASES = [
     titre: "Chocolat de Sombréclat",
     contenu:
       "La boisson préférée des sorciers affamés :\n\n• 25 cl de lait\n• 2 carrés de chocolat noir\n• 1 pincée de piment (oui, vraiment)\n• Une pincée de sucre vanillé\n\nFaire fondre le chocolat à feu très doux. Invoquer une assiette de cookies pour l'accompagner.",
-    defi: "Poste la photo de ta boisson du soir avec un nom d'objet épique inventé. Exemple : « Chocolat de Sombréclat +3 sagesse ». La plus originale gagne 1 PO.",
+    defi: "Poste la photo de ta boisson du soir avec un nom d'objet épique inventé. Exemple : « Chocolat de Sombréclat +3 esprit ». La plus originale gagne 1 PO.",
   },
   {
     date: new Date(2026, 9, 8),
