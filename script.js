@@ -354,7 +354,7 @@ const CASES = [
     titre: "🎉 C'EST AUJOURD'HUI ! 🎉",
     contenu:
       "WoW Forever est là. Vous avez patienté comme des champions.\n\nQue vos loot soient légendaires, vos quêtes épiques et vos déconnexions rares.\n\nPOUR L'ALLIANCE ! ⚔️🛡️🏰\n\n(Le calendrier vous salue bien bas et part farm avec vous.)",
-    defi: "Le premier screenshot de toute la guilde sur la même image, dans Azeroth. Ce sera notre première épopée.",
+    defi: "Le premier screenshot de toutes et tous sur la même image, dans Azeroth. Ce sera notre première épopée, mais pas la dernière !",
   },
 ];
 
