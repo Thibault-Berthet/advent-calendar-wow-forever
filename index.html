@@ -18,6 +18,8 @@
       <nav class="onglets">
         <button class="onglet actif" id="onglet-calendrier">📅 Calendrier</button>
         <button class="onglet" id="onglet-murloc">🐟 Tape le murloc</button>
+        <button class="onglet" id="onglet-mots">🧩 Mots croisés</button>
+        <button class="onglet" id="onglet-mots2">🧠 Expert</button>
       </nav>
     </header>
 
@@ -37,6 +39,59 @@
       </div>
       <div id="mj-grille"></div>
       <p id="mj-message"></p>
+    </section>
+
+    <section id="mots-croises">
+      <h2 class="mj-titre">🧩 Mots croisés d'Azeroth</h2>
+      <p class="mj-texte">
+        9 définitions, thème Warcraft. Le chrono démarre à la première
+        lettre posée — 2 minutes, et pas une de plus ! Les cases noires sont
+        des cases vides, le reste se remplit.
+      </p>
+      <div class="mj-barre">
+        <span class="mj-info" id="mc-temps">02:00</span>
+        <span class="mj-info" id="mc-record">Meilleur temps : —</span>
+      </div>
+      <div class="mj-barre">
+        <button class="fermer" id="mc-verifier">Vérifier</button>
+        <button class="fermer" id="mc-recommencer">Recommencer</button>
+      </div>
+      <div id="mc-zone">
+        <div id="mc-grille"></div>
+        <div class="mc-indices">
+          <h3 class="mc-titres">→ Horizontal</h3>
+          <ul class="mc-liste" id="mc-horiz"></ul>
+          <h3 class="mc-titres">↓ Vertical</h3>
+          <ul class="mc-liste" id="mc-vert"></ul>
+        </div>
+      </div>
+      <p id="mc-message"></p>
+    </section>
+
+    <section id="mots-croises-2">
+      <h2 class="mj-titre">🧠 Mots croisés — Mode expert</h2>
+      <p class="mj-texte">
+        11 définitions pour vétérans d'Azeroth, indices sans pitié.
+        10 minutes de chrono — le meilleur temps reste à battre !
+      </p>
+      <div class="mj-barre">
+        <span class="mj-info" id="mc2-temps">10:00</span>
+        <span class="mj-info" id="mc2-record">Meilleur temps : —</span>
+      </div>
+      <div class="mj-barre">
+        <button class="fermer" id="mc2-verifier">Vérifier</button>
+        <button class="fermer" id="mc2-recommencer">Recommencer</button>
+      </div>
+      <div id="mc-zone">
+        <div id="mc2-grille"></div>
+        <div class="mc-indices">
+          <h3 class="mc-titres">→ Horizontal</h3>
+          <ul class="mc-liste" id="mc2-horiz"></ul>
+          <h3 class="mc-titres">↓ Vertical</h3>
+          <ul class="mc-liste" id="mc2-vert"></ul>
+        </div>
+      </div>
+      <p id="mc2-message"></p>
     </section>
 
     <main id="grille"></main>

@@ -497,11 +497,14 @@ let mjCompteur = null;
 let mjFile = null;
 
 function afficherVue(vue) {
-  const calendrier = vue === "calendrier";
-  grille.style.display = calendrier ? "grid" : "none";
-  mjSection.style.display = calendrier ? "none" : "block";
-  ongletCalendrier.classList.toggle("actif", calendrier);
-  ongletMurloc.classList.toggle("actif", !calendrier);
+  grille.style.display = vue === "calendrier" ? "grid" : "none";
+  mjSection.style.display = vue === "murloc" ? "block" : "none";
+  mcSection.style.display = vue === "mots" ? "block" : "none";
+  mcSection2.style.display = vue === "mots2" ? "block" : "none";
+  ongletCalendrier.classList.toggle("actif", vue === "calendrier");
+  ongletMurloc.classList.toggle("actif", vue === "murloc");
+  ongletMots.classList.toggle("actif", vue === "mots");
+  ongletMots2.classList.toggle("actif", vue === "mots2");
 }
 ongletCalendrier.addEventListener("click", () => afficherVue("calendrier"));
 ongletMurloc.addEventListener("click", () => afficherVue("murloc"));
@@ -619,3 +622,277 @@ mjBordereau();
 ["assets/murloc_icone.jpg", "assets/kobold_icone.jpg"].forEach((src) => {
   new Image().src = src;
 });
+
+// ================== MOTS CROISÉS ==================
+const mcSection = document.getElementById("mots-croises");
+const mcSection2 = document.getElementById("mots-croises-2");
+const ongletMots = document.getElementById("onglet-mots");
+const ongletMots2 = document.getElementById("onglet-mots2");
+
+const MC_MOTS = [
+  { num: 1, sens: "horizontal", ligne: 2, col: 3, mot: "TANARIS", indice: "Zone désertique du sud de Kalimdor, décor de la Foire de Sombrelune." },
+  { num: 1, sens: "vertical", ligne: 2, col: 3, mot: "THRALL", indice: "Premier chef de guerre de la Horde moderne." },
+  { num: 2, sens: "vertical", ligne: 3, col: 2, mot: "MURLOC", indice: "Amphibien au chant inoubliable : mrgglglgl." },
+  { num: 3, sens: "vertical", ligne: 3, col: 7, mot: "DEFIAS", indice: "Fraternité au masque rouge qui sévit à Comté-du-l'Ouest." },
+  { num: 4, sens: "horizontal", ligne: 4, col: 1, mot: "HURLEVENT", indice: "Capitale de l'Alliance, celle qui a son propre métro." },
+  { num: 4, sens: "vertical", ligne: 4, col: 1, mot: "HORDE", indice: "L'autre faction, avec exactement la même amitié." },
+  { num: 5, sens: "vertical", ligne: 4, col: 5, mot: "ELUNE", indice: "Déesse lunaire des Kaldorei." },
+  { num: 6, sens: "vertical", ligne: 4, col: 9, mot: "TAUREN", indice: "Peuple taureau des plaines de Mulgore." },
+  { num: 7, sens: "horizontal", ligne: 7, col: 3, mot: "LUNE", indice: "Ce qu'adorent les Kaldorei, version astronomique." },
+];
+
+const MC2_MOTS = [
+  { num: 1, sens: "horizontal", ligne: 0, col: 4, mot: "ALLIANCE", indice: "Foi, chevalerie, bleu et or : le camp qui lit ce calendrier." },
+  { num: 1, sens: "vertical", ligne: 0, col: 4, mot: "ARCHIMONDE", indice: "Le Corrupteur, grillé par des wisps au mont Hyjal." },
+  { num: 2, sens: "horizontal", ligne: 1, col: 2, mot: "KARAZHAN", indice: "La tour de Medivh, celle des fêtes de Moroes." },
+  { num: 2, sens: "vertical", ligne: 1, col: 2, mot: "KALIMDOR", indice: "Le grand continent de l'ouest, côté orcs et taurens." },
+  { num: 3, sens: "vertical", ligne: 1, col: 3, mot: "AZSHARA", indice: "Impératrice déchue devenue reine des naga." },
+  { num: 4, sens: "vertical", ligne: 1, col: 5, mot: "ARGENT", indice: "Métal du tournoi des croisés — pas celui de vos PO." },
+  { num: 5, sens: "vertical", ligne: 1, col: 6, mot: "ZANDALAR", indice: "L'île-mère de tout le peuple troll." },
+  { num: 6, sens: "vertical", ligne: 1, col: 7, mot: "HOGGER", indice: "Le gnoll qui a fait pleurer des générations de niveaux 10." },
+  { num: 7, sens: "vertical", ligne: 1, col: 8, mot: "ARGUS", indice: "Planète natale des draeneï, avant l'exode." },
+  { num: 8, sens: "vertical", ligne: 1, col: 9, mot: "NERZHUL", indice: "La moitié d'origine du Roi-Liche, avant la fusion." },
+  { num: 9, sens: "horizontal", ligne: 9, col: 4, mot: "EXODAR", indice: "Le « vaisseau » draeneï couché sur les îles Brumeuses." },
+];
+
+function creerMotsCroises(cfg) {
+  const grilleEl = document.getElementById(cfg.grille);
+  const tempsEl = document.getElementById(cfg.temps);
+  const recordEl = document.getElementById(cfg.record);
+  const messageEl = document.getElementById(cfg.message);
+  const horizEl = document.getElementById(cfg.horiz);
+  const vertEl = document.getElementById(cfg.vert);
+
+  let champs = [];
+  let tempsRestant = cfg.duree;
+  let chronoLance = false;
+  let compteur = null;
+  let termine = false;
+
+  function norm(texte) {
+    return texte
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toUpperCase()
+      .replace(/[^A-Z]/g, "")
+      .slice(0, 1);
+  }
+
+  function format(secondes) {
+    const m = Math.floor(Math.max(0, secondes) / 60);
+    const r = Math.max(0, secondes) % 60;
+    return (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r;
+  }
+
+  function majTemps() {
+    tempsEl.textContent = format(tempsRestant);
+    tempsEl.classList.toggle("rouge", tempsRestant <= 60);
+  }
+
+  function majRecord() {
+    const record = localStorage.getItem(cfg.cleRecord);
+    recordEl.textContent =
+      "Meilleur temps : " + (record ? format(Number(record)) : "—");
+  }
+
+  function lancerChrono() {
+    if (chronoLance || termine) return;
+    chronoLance = true;
+    compteur = setInterval(() => {
+      tempsRestant--;
+      majTemps();
+      if (tempsRestant <= 0) echec();
+    }, 1000);
+  }
+
+  function verifier(bavard) {
+    if (termine) return;
+    const vides = champs.filter((c) => !c.value).length;
+    if (vides > 0) {
+      if (bavard) {
+        messageEl.textContent =
+          "Il manque encore " + vides + " lettre" + (vides > 1 ? "s" : "") + " !";
+      }
+      return;
+    }
+    const fausses = champs.filter((c) => c.value !== c.dataset.attendu);
+    if (fausses.length === 0) {
+      victoire();
+    } else if (bavard) {
+      fausses.forEach((c) => c.classList.add("fausse"));
+      messageEl.textContent =
+        fausses.length +
+        " lettre" +
+        (fausses.length > 1 ? "s" : "") +
+        " incorrecte" +
+        (fausses.length > 1 ? "s" : "") +
+        " — fouille encore !";
+      setTimeout(() => {
+        fausses.forEach((c) => c.classList.remove("fausse"));
+      }, 1800);
+    }
+  }
+
+  function victoire() {
+    termine = true;
+    clearInterval(compteur);
+    const utilise = cfg.duree - tempsRestant;
+    const record = localStorage.getItem(cfg.cleRecord);
+    let recordTxt = "";
+    if (!record || utilise < Number(record)) {
+      localStorage.setItem(cfg.cleRecord, String(utilise));
+      recordTxt = " Record battu !";
+    }
+    majRecord();
+    champs.forEach((c) => {
+      c.classList.add("juste");
+      c.disabled = true;
+    });
+    messageEl.textContent =
+      "🎉 Grille complétée en " +
+      format(utilise) +
+      " !" +
+      recordTxt +
+      " Poste ton temps sur le Discord !";
+  }
+
+  function echec() {
+    if (termine) return;
+    termine = true;
+    clearInterval(compteur);
+    champs.forEach((c) => (c.disabled = true));
+    messageEl.textContent =
+      "⏳ Temps écoulé ! VOUS N'ÊTES PAS PRÊTS ! Recommence, héros.";
+  }
+
+  function construire() {
+    clearInterval(compteur);
+    chronoLance = false;
+    termine = false;
+    tempsRestant = cfg.duree;
+    majTemps();
+    messageEl.textContent = "";
+    const attendu = Array.from({ length: cfg.lignes }, () =>
+      Array(cfg.colonnes).fill(""),
+    );
+    const numero = Array.from({ length: cfg.lignes }, () =>
+      Array(cfg.colonnes).fill(0),
+    );
+    cfg.mots.forEach((m) => {
+      [...m.mot].forEach((lettre, i) => {
+        const r = m.ligne + (m.sens === "vertical" ? i : 0);
+        const c = m.col + (m.sens === "horizontal" ? i : 0);
+        if (attendu[r][c] && attendu[r][c] !== lettre) {
+          console.warn("Conflit mots croisés en " + r + "," + c);
+        }
+        attendu[r][c] = lettre;
+        if (i === 0) numero[r][c] = m.num;
+      });
+    });
+    grilleEl.innerHTML = "";
+    champs = [];
+    for (let r = 0; r < cfg.lignes; r++) {
+      for (let c = 0; c < cfg.colonnes; c++) {
+        const caseEl = document.createElement("div");
+        caseEl.className = "mc-case";
+        if (!attendu[r][c]) {
+          caseEl.classList.add("mc-noire");
+        } else {
+          if (numero[r][c]) {
+            const num = document.createElement("span");
+            num.className = "mc-num";
+            num.textContent = numero[r][c];
+            caseEl.appendChild(num);
+          }
+          const champ = document.createElement("input");
+          champ.type = "text";
+          champ.maxLength = "1";
+          champ.autocomplete = "off";
+          champ.className = "mc-input";
+          champ.dataset.attendu = attendu[r][c];
+          const index = champs.length;
+          champ.addEventListener("input", () => {
+            if (termine) return;
+            champ.value = norm(champ.value);
+            champ.classList.remove("fausse");
+            lancerChrono();
+            verifier(false);
+            if (champ.value && index < champs.length - 1) {
+              champs[index + 1].focus();
+            }
+          });
+          champ.addEventListener("keydown", (e) => {
+            if (e.key === "Backspace" && !champ.value && index > 0) {
+              e.preventDefault();
+              const precedent = champs[index - 1];
+              precedent.focus();
+              precedent.value = "";
+            }
+          });
+          caseEl.appendChild(champ);
+          champs.push(champ);
+        }
+        grilleEl.appendChild(caseEl);
+      }
+    }
+  }
+
+  function construireIndices() {
+    horizEl.innerHTML = "";
+    vertEl.innerHTML = "";
+    cfg.mots.forEach((m) => {
+      const li = document.createElement("li");
+      li.innerHTML =
+        "<strong>" + m.num + ".</strong> " +
+        m.mot.length + " lettres — " +
+        m.indice;
+      (m.sens === "horizontal" ? horizEl : vertEl).appendChild(li);
+    });
+  }
+
+  document
+    .getElementById(cfg.boutonVerifier)
+    .addEventListener("click", () => verifier(true));
+  document
+    .getElementById(cfg.boutonRecommencer)
+    .addEventListener("click", construire);
+
+  construire();
+  construireIndices();
+  majRecord();
+}
+
+creerMotsCroises({
+  grille: "mc-grille",
+  horiz: "mc-horiz",
+  vert: "mc-vert",
+  temps: "mc-temps",
+  record: "mc-record",
+  message: "mc-message",
+  boutonVerifier: "mc-verifier",
+  boutonRecommencer: "mc-recommencer",
+  mots: MC_MOTS,
+  duree: 120,
+  cleRecord: "wow-mots-record",
+  lignes: 10,
+  colonnes: 10,
+});
+
+creerMotsCroises({
+  grille: "mc2-grille",
+  horiz: "mc2-horiz",
+  vert: "mc2-vert",
+  temps: "mc2-temps",
+  record: "mc2-record",
+  message: "mc2-message",
+  boutonVerifier: "mc2-verifier",
+  boutonRecommencer: "mc2-recommencer",
+  mots: MC2_MOTS,
+  duree: 600,
+  cleRecord: "wow-mots2-record",
+  lignes: 10,
+  colonnes: 12,
+});
+
+ongletMots.addEventListener("click", () => afficherVue("mots"));
+ongletMots2.addEventListener("click", () => afficherVue("mots2"));
