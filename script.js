@@ -630,29 +630,26 @@ const ongletMots = document.getElementById("onglet-mots");
 const ongletMots2 = document.getElementById("onglet-mots2");
 
 const MC_MOTS = [
-  { num: 1, sens: "horizontal", ligne: 2, col: 3, mot: "TANARIS", indice: "Zone désertique du sud de Kalimdor, décor de la Foire de Sombrelune." },
-  { num: 1, sens: "vertical", ligne: 2, col: 3, mot: "THRALL", indice: "Premier chef de guerre de la Horde moderne." },
-  { num: 2, sens: "vertical", ligne: 3, col: 2, mot: "MURLOC", indice: "Amphibien au chant inoubliable : mrgglglgl." },
-  { num: 3, sens: "vertical", ligne: 3, col: 7, mot: "DEFIAS", indice: "Fraternité au masque rouge qui sévit à Comté-du-l'Ouest." },
-  { num: 4, sens: "horizontal", ligne: 4, col: 1, mot: "HURLEVENT", indice: "Capitale de l'Alliance, celle qui a son propre métro." },
-  { num: 4, sens: "vertical", ligne: 4, col: 1, mot: "HORDE", indice: "L'autre faction, avec exactement la même amitié." },
-  { num: 5, sens: "vertical", ligne: 4, col: 5, mot: "ELUNE", indice: "Déesse lunaire des Kaldorei." },
-  { num: 6, sens: "vertical", ligne: 4, col: 9, mot: "TAUREN", indice: "Peuple taureau des plaines de Mulgore." },
-  { num: 7, sens: "horizontal", ligne: 7, col: 3, mot: "LUNE", indice: "Ce qu'adorent les Kaldorei, version astronomique." },
+  { num: 1, sens: "vertical", ligne: 1, col: 2, mot: "MURLOC", indice: "Amphibien au chant inoubliable : mrgglglgl." },
+  { num: 2, sens: "horizontal", ligne: 2, col: 1, mot: "HURLEVENT", indice: "La capitale de l'Alliance, celle qui a son propre métro." },
+  { num: 3, sens: "vertical", ligne: 2, col: 7, mot: "ELUNE", indice: "Déesse lunaire des Kaldorei." },
+  { num: 4, sens: "vertical", ligne: 2, col: 9, mot: "TAVERNE", indice: "L'endroit où le raid va après le wipe, victorieux ou non." },
+  { num: 5, sens: "horizontal", ligne: 6, col: 2, mot: "CHASSEUR", indice: "La classe qui tire et ne compte jamais ses flèches." },
+  { num: 6, sens: "vertical", ligne: 6, col: 3, mot: "HORDE", indice: "L'autre faction, avec exactement la même amitié." },
+  { num: 7, sens: "vertical", ligne: 6, col: 5, mot: "SERVEUR", indice: "Celui qui ouvre officiellement ce soir — soyez indulgents." },
+  { num: 8, sens: "horizontal", ligne: 10, col: 3, mot: "EPEE", indice: "Arme fine à deux tranchants, option du paladin élégant." },
 ];
 
 const MC2_MOTS = [
-  { num: 1, sens: "horizontal", ligne: 0, col: 4, mot: "ALLIANCE", indice: "Foi, chevalerie, bleu et or : le camp qui lit ce calendrier." },
-  { num: 1, sens: "vertical", ligne: 0, col: 4, mot: "ARCHIMONDE", indice: "Le Corrupteur, grillé par des wisps au mont Hyjal." },
-  { num: 2, sens: "horizontal", ligne: 1, col: 2, mot: "KARAZHAN", indice: "La tour de Medivh, celle des fêtes de Moroes." },
-  { num: 2, sens: "vertical", ligne: 1, col: 2, mot: "KALIMDOR", indice: "Le grand continent de l'ouest, côté orcs et taurens." },
-  { num: 3, sens: "vertical", ligne: 1, col: 3, mot: "AZSHARA", indice: "Impératrice déchue devenue reine des naga." },
-  { num: 4, sens: "vertical", ligne: 1, col: 5, mot: "ARGENT", indice: "Métal du tournoi des croisés — pas celui de vos PO." },
-  { num: 5, sens: "vertical", ligne: 1, col: 6, mot: "ZANDALAR", indice: "L'île-mère de tout le peuple troll." },
-  { num: 6, sens: "vertical", ligne: 1, col: 7, mot: "HOGGER", indice: "Le gnoll qui a fait pleurer des générations de niveaux 10." },
-  { num: 7, sens: "vertical", ligne: 1, col: 8, mot: "ARGUS", indice: "Planète natale des draeneï, avant l'exode." },
-  { num: 8, sens: "vertical", ligne: 1, col: 9, mot: "NERZHUL", indice: "La moitié d'origine du Roi-Liche, avant la fusion." },
-  { num: 9, sens: "horizontal", ligne: 9, col: 4, mot: "EXODAR", indice: "Le « vaisseau » draeneï couché sur les îles Brumeuses." },
+  { num: 1, sens: "horizontal", ligne: 2, col: 2, mot: "AZEROTH", indice: "Le monde où vous débarquez ce soir." },
+  { num: 2, sens: "vertical", ligne: 2, col: 6, mot: "OMBRE", indice: "Spécialité du prêtre qui tape dans le noir." },
+  { num: 3, sens: "vertical", ligne: 2, col: 8, mot: "HACHE", indice: "L'outil de Grom, qui a fait ses preuves sur Mannoroth." },
+  { num: 4, sens: "horizontal", ligne: 4, col: 6, mot: "BAC", indice: "Le bateau lent de Menethil, traversée incluse." },
+  { num: 5, sens: "horizontal", ligne: 6, col: 2, mot: "FORGEFER", indice: "La capitale des nains, creusée dans la montagne." },
+  { num: 6, sens: "vertical", ligne: 6, col: 3, mot: "OGRES", indice: "Les grands voisins brutaux des gobelins." },
+  { num: 7, sens: "vertical", ligne: 6, col: 5, mot: "GOBELIN", indice: "Petit vert bricoleur, expert en mécanique instable." },
+  { num: 8, sens: "horizontal", ligne: 10, col: 3, mot: "SILENCE", indice: "Ce que le prêtre lance et que le raid n'écoute jamais." },
+  { num: 9, sens: "horizontal", ligne: 12, col: 5, mot: "NEANT", indice: "Ce dont sont faits les démons distordus." },
 ];
 
 function creerMotsCroises(cfg) {
@@ -874,7 +871,7 @@ creerMotsCroises({
   mots: MC_MOTS,
   duree: 120,
   cleRecord: "wow-mots-record",
-  lignes: 10,
+  lignes: 13,
   colonnes: 10,
 });
 
@@ -890,8 +887,8 @@ creerMotsCroises({
   mots: MC2_MOTS,
   duree: 600,
   cleRecord: "wow-mots2-record",
-  lignes: 10,
-  colonnes: 12,
+  lignes: 13,
+  colonnes: 10,
 });
 
 ongletMots.addEventListener("click", () => afficherVue("mots"));
