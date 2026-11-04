@@ -546,7 +546,7 @@ function mjConstruireTrous() {
         occupant.textContent = "💥";
       }
       trou.classList.remove("occupe");
-      setTimeout(() => (occupant.textContent = ""), 200);
+      setTimeout(() => (occupant.innerHTML = ""), 200);
       mjBordereau();
     });
     mjGrille.appendChild(trou);
@@ -562,13 +562,15 @@ function mjApparaitre() {
     const trou = trous[Math.floor(Math.random() * trous.length)];
     const kobold = Math.random() < 0.2;
     const occupant = trou.querySelector(".mj-occupant");
-    occupant.textContent = kobold ? "👺" : "🐟";
+    occupant.innerHTML = kobold
+      ? '<img src="assets/kobold_icone.jpg" alt="kobold">'
+      : '<img src="assets/murloc_icone.jpg" alt="murloc">';
     trou.dataset.kobold = kobold ? "1" : "0";
     trou.classList.add("occupe");
     setTimeout(() => {
       if (trou.classList.contains("occupe")) {
         trou.classList.remove("occupe");
-        occupant.textContent = "";
+        occupant.innerHTML = "";
       }
     }, 600 + Math.random() * 500);
   }
@@ -612,3 +614,8 @@ mjBouton.addEventListener("click", () => {
 
 mjConstruireTrous();
 mjBordereau();
+
+// Prechargement des images pour eviter le retard au premier murloc
+["assets/murloc_icone.jpg", "assets/kobold_icone.jpg"].forEach((src) => {
+  new Image().src = src;
+});

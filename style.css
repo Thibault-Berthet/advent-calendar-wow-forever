@@ -473,3 +473,11 @@ footer {
   font-size: 1rem;
   margin-top: 10px;
 }
+.mj-occupant img {
+  width: 68px;
+  height: 68px;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
