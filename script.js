@@ -479,3 +479,136 @@ function construireGrille() {
 construireCompteur();
 construireGrille();
 setInterval(construireCompteur, 60000);
+
+// ================== MINI-JEU : TAPE LE MURLOC ==================
+const mjSection = document.getElementById("minijeu");
+const mjGrille = document.getElementById("mj-grille");
+const mjScoreEl = document.getElementById("mj-score");
+const mjTempsEl = document.getElementById("mj-temps");
+const mjRecordEl = document.getElementById("mj-record");
+const mjMessage = document.getElementById("mj-message");
+const mjBouton = document.getElementById("mj-demarrer");
+const ongletCalendrier = document.getElementById("onglet-calendrier");
+const ongletMurloc = document.getElementById("onglet-murloc");
+let mjScore = 0;
+let mjSec = 30;
+let mjPartie = false;
+let mjCompteur = null;
+let mjFile = null;
+
+function afficherVue(vue) {
+  const calendrier = vue === "calendrier";
+  grille.style.display = calendrier ? "grid" : "none";
+  mjSection.style.display = calendrier ? "none" : "block";
+  ongletCalendrier.classList.toggle("actif", calendrier);
+  ongletMurloc.classList.toggle("actif", !calendrier);
+}
+ongletCalendrier.addEventListener("click", () => afficherVue("calendrier"));
+ongletMurloc.addEventListener("click", () => afficherVue("murloc"));
+
+function mjRang(score) {
+  if (score <= 4) return "les murlocs te prennent pour un poisson. Mrgglgl…";
+  if (score <= 9) return "jeune écuyer de l'estran, mais tu bats dans la bonne direction.";
+  if (score <= 14) return "chasseur de murlocs certifié, les murlocs t'ont vu venir.";
+  if (score <= 19) return "terreur de la côte, les murlocs prononcent ton nom avec peur.";
+  return "Leeroy serait fier : charger sans regarder, taper sans demander. 🍗";
+}
+
+function mjBordereau() {
+  const record = Number(localStorage.getItem("wow-murloc-record") || 0);
+  mjScoreEl.textContent = "Score : " + mjScore;
+  mjTempsEl.textContent = mjSec + " s";
+  mjRecordEl.textContent = "Record : " + record;
+}
+
+function mjFlash(texte) {
+  mjMessage.textContent = texte;
+  setTimeout(() => {
+    if (mjMessage.textContent === texte) mjMessage.textContent = "";
+  }, 1000);
+}
+
+function mjConstruireTrous() {
+  mjGrille.innerHTML = "";
+  for (let i = 0; i < 9; i++) {
+    const trou = document.createElement("div");
+    trou.className = "mj-trou";
+    trou.innerHTML = '<span class="mj-occupant"></span>';
+    trou.addEventListener("click", () => {
+      if (!mjPartie || !trou.classList.contains("occupe")) return;
+      const occupant = trou.querySelector(".mj-occupant");
+      if (trou.dataset.kobold === "1") {
+        mjScore = Math.max(0, mjScore - 3);
+        occupant.textContent = "🕯️";
+        mjFlash("VOUS PAS PRENDRE BOUGIE ! -3");
+      } else {
+        mjScore += 2;
+        occupant.textContent = "💥";
+      }
+      trou.classList.remove("occupe");
+      setTimeout(() => (occupant.textContent = ""), 200);
+      mjBordereau();
+    });
+    mjGrille.appendChild(trou);
+  }
+}
+
+function mjApparaitre() {
+  if (!mjPartie) return;
+  const trous = [...mjGrille.children].filter(
+    (t) => !t.classList.contains("occupe"),
+  );
+  if (trous.length) {
+    const trou = trous[Math.floor(Math.random() * trous.length)];
+    const kobold = Math.random() < 0.2;
+    const occupant = trou.querySelector(".mj-occupant");
+    occupant.textContent = kobold ? "👺" : "🐟";
+    trou.dataset.kobold = kobold ? "1" : "0";
+    trou.classList.add("occupe");
+    setTimeout(() => {
+      if (trou.classList.contains("occupe")) {
+        trou.classList.remove("occupe");
+        occupant.textContent = "";
+      }
+    }, 600 + Math.random() * 500);
+  }
+  const vitesse = Math.max(300, 700 - (30 - mjSec) * 12);
+  mjFile = setTimeout(mjApparaitre, vitesse + Math.random() * 400);
+}
+
+function mjFin() {
+  mjPartie = false;
+  clearInterval(mjCompteur);
+  clearTimeout(mjFile);
+  mjConstruireTrous();
+  mjBouton.disabled = false;
+  mjBouton.textContent = "Repartir pour 30 secondes !";
+  const record = Number(localStorage.getItem("wow-murloc-record") || 0);
+  let recordTxt = " Coach : poste ton score sur le Discord !";
+  if (mjScore > record) {
+    localStorage.setItem("wow-murloc-record", String(mjScore));
+    recordTxt = " Nouveau record ! Poste-le sur le Discord ! 🏆";
+  }
+  mjMessage.textContent = mjScore + " points — " + mjRang(mjScore) + recordTxt;
+  mjBordereau();
+}
+
+mjBouton.addEventListener("click", () => {
+  mjConstruireTrous();
+  mjScore = 0;
+  mjSec = 30;
+  mjPartie = true;
+  mjBouton.disabled = true;
+  mjBouton.textContent = "Les murlocs déferlent…";
+  mjMessage.textContent = "";
+  mjBordereau();
+  mjApparaitre();
+  mjCompteur = setInterval(() => {
+    mjSec--;
+    mjBordereau();
+    if (mjSec <= 0) mjFin();
+  }, 1000);
+});
+
+mjConstruireTrous();
+mjBordereau();

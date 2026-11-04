@@ -15,7 +15,29 @@
       </p>
       <div id="compte-a-rebours"></div>
       <p class="etoiles">✦ ✦ ✦ ✦ ✦</p>
+      <nav class="onglets">
+        <button class="onglet actif" id="onglet-calendrier">📅 Calendrier</button>
+        <button class="onglet" id="onglet-murloc">🐟 Tape le murloc</button>
+      </nav>
     </header>
+
+    <section id="minijeu">
+      <h2 class="mj-titre">🐟 Tape le murloc</h2>
+      <p class="mj-texte">
+        Les murlocs ont envahi la côte ! Tape-en un maximum en 30 secondes.
+        Attention aux kobolds : on ne prend PAS leur bougie. 🕯️ (-3)
+      </p>
+      <div class="mj-barre">
+        <button class="fermer" id="mj-demarrer">Libérer les murlocs !</button>
+      </div>
+      <div class="mj-barre">
+        <span class="mj-info" id="mj-score">Score : 0</span>
+        <span class="mj-info" id="mj-temps">30 s</span>
+        <span class="mj-info" id="mj-record">Record : 0</span>
+      </div>
+      <div id="mj-grille"></div>
+      <p id="mj-message"></p>
+    </section>
 
     <main id="grille"></main>
 
